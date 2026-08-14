@@ -1090,10 +1090,16 @@ document.addEventListener("click", (e) => {
   const p = e.target.closest("[data-page]");
 
   if (p) {
-    e.preventDefault();
-    page(p.dataset.page);
-    return;
+  e.preventDefault();
+
+  page(p.dataset.page);
+
+  if (window.innerWidth <= 768) {
+    $("#sidebar").classList.remove("open");
   }
+
+  return;
+}
 
   const prod = e.target.closest("[data-product]");
 
